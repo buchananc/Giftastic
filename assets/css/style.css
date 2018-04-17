@@ -5,3 +5,10 @@
 #koalateaLogo {
     width: 100%;
 }
+
+button,
+div,
+form,
+input {
+    margin: 10px;
+}
