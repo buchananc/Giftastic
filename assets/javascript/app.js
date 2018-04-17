@@ -38,8 +38,8 @@ $(document).ready(function() {
 
     ////////////////// Display Gifs (Quoth the Gify) ////////////////////////
     function showGifs() {
-        var animalData = $(this).attr("data-animal");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalInput + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var animalData = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalData + "&api_key=dc6zaTOxFJmzC&limit=10";
 
         $.ajax({url: queryURL, method: "GET"}).done(function (response) { //AJAX request, maybe .then
             var results = response.data; //save results as a variable
@@ -55,7 +55,7 @@ $(document).ready(function() {
                     showGifs.addClass("gif");
                     showGifs.attr('data-animate', results[i].images.fixed_height.url);
                 gifDiv.append(showGifs);
-                $("#animalGifs").prepend(gifDiv);
+                $("#animalGifs").prepend(gifDiv);ß
             }
         });
 }
