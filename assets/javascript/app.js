@@ -55,7 +55,7 @@ $(document).ready(function() {
                     showGifs.addClass("gif");
                     showGifs.attr('data-animate', results[i].images.fixed_height.url);
                 gifDiv.append(showGifs);
-                $("#animalGifs").prepend(gifDiv);ß
+                $("#animalGifs").prepend(gifDiv); //had prepend here before
             }
         });
 }

@@ -6,9 +6,14 @@
     width: 100%;
 }
 
-button,
-div,
-form,
-input {
+button {
     margin: 10px;
+}
+
+#animalInput {
+    background-color: pink;
+}
+
+#animalGifs {
+    background-color: aqua;
 }
