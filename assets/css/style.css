@@ -1,3 +1,10 @@
+/* font-family: 'Amatic SC',
+cursive;
+font-family: 'Montserrat',
+sans-serif;
+font-family: 'Didact Gothic',
+sans-serif; */
+
 .jumbotron {
     padding: 0px;
 }
@@ -8,12 +15,7 @@
 
 button {
     margin: 10px;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 16px;
 }
 
-#animalInput {
-    background-color: pink;
-}
-
-#animalGifs {
-    background-color: aqua;
-}
