@@ -39,13 +39,14 @@ $(document).ready(function() {
     ////////////////// Display Gifs (Quoth the Gify) ////////////////////////
     function showGifs() {
         var animalData = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalData + "&api_key=dc6zaTOxFJmzC&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalData + "&api_key=dc6zaTOxFJmzC&limit=15";
 
         $.ajax({url: queryURL, method: "GET"}).done(function (response) { //AJAX request, maybe .then
             var results = response.data; //save results as a variable
                 for (var i = 0; i < results.length; i++) { // Looping over every gif
                     var gifDiv = $("<div class='gif'>"); // Creates a div with the class "gifs"
                     var showGifs = $("<img>");
+                    var p = $("<p>").text("Rating: " + results[i].rating); //creates a paragraph tag with the result item's rating
                     showGifs.attr("src", results[i].images.fixed_height_still.url);
 
                     ////////////////////////show rating on hover////////////////////
@@ -54,7 +55,8 @@ $(document).ready(function() {
                     showGifs.attr("data-state", "still");
                     showGifs.addClass("gif");
                     showGifs.attr('data-animate', results[i].images.fixed_height.url);
-                gifDiv.append(showGifs);
+                    gifDiv.append(p);
+                    gifDiv.append(showGifs);
                 $("#animalGifs").prepend(gifDiv); //had prepend here before
             }
         });
