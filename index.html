@@ -24,7 +24,7 @@
 
         <!-- Animal Buttons -->
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-9 clearfix">
                 <div id="animalView"></div>
             </div>
 
@@ -36,7 +36,8 @@
                 </div>
                 <div class="btn-group">
                     <!-- Button triggers new animal to be added -->
-                    <button class="btn btn-default" type="button submit" data-search="animal" id="addAnimal">
+                    <!-- May need to have type="button submit" -->
+                    <button class="btn btn-default" type="submit" data-search="animal" id="addAnimal">
                         <em class="glyphicon glyphicon-plus"></em> Make an Animal Button
                     </button>
                 </div>
@@ -52,7 +53,15 @@
             </div>
             <!-- Gifs End Here -->
         </div>
+
     </div>
+    <footer class="footer">
+        <div class="container gifContainer">
+            <a href="https://giphy.com/"><img src="./assets/images/giphypower.gif" class="gifyImage">
+            </a>
+        </div>
+    </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./assets/javascript/app.js"></script>
 </body>

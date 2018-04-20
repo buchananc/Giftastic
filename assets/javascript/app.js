@@ -27,13 +27,21 @@ $(document).ready(function() {
     /////////////////////// addAnimal Event /////////////////////
 
     // This function handles button event
-    $("#addAnimal").on("click", function () {
-
+    $("#addAnimal").on("click", function () { //event might go in parenthesis
+        //event.preventDefault();
         var animalInput = $("#animalInput").val().trim(); //grabs user input
         animals.push(animalInput); //add user input to array
         renderButtons(); //call renderButtons to make buttons for all the animals
-        return false; //user can hit "enter" to submit response
+        // return false; //user can hit "enter" to submit response
+
     });
+
+    // var formSubmit = function(e) {
+    //     $('.form-group').submit(animalInput);
+    // }
+
+    // formSubmit();
+
 
 
     ////////////////// Display Gifs (Quoth the Gify) ////////////////////////
