@@ -14,7 +14,7 @@ sans-serif; */
 }
 
 button {
-    margin: 10px;
+    margin: 0 10px;
     font-family: 'Didact Gothic', sans-serif;
     font-size: 16px;
 }
@@ -32,15 +32,19 @@ p {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 60px;
+    height: 50px;
     line-height: 60px;
-    background-color: #139A9D;
+    background-color: white;
+    background-image: url("../images/DirtyChalkboard.jpg");
 }
 
 .gifContainer {
     margin: 0 20px;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
 .gifyImage {
-    width: 10em;
+    width: 8em;
+    margin-top: 5px;
 }
