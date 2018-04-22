@@ -33,8 +33,7 @@ $(document).ready(function () {
         var animalInput = $("#animalInput").val().trim(); //grabs user input
         animals.push(animalInput); //add user input to array
         renderButtons(); //call renderButtons to make buttons for all the animals
-        // return false; //user can hit "enter" to submit response
-
+        $("#animalInput").val("");
     });
 
 
