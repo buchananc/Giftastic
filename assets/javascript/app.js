@@ -1,12 +1,12 @@
-$(document).ready(function() {
-    
+$(document).ready(function () {
+
     ////////////////////User Types in Response/////////////////
 
     //create an array of animals
     var animals = ["fox", "turtle", "chameleon", "bee", "hummingbird"];
 
     // Function for displaying animal data
-    function renderButtons(){
+    function renderButtons() {
 
         // Deletes the animal buttons prior to adding new animal button so none of them repeat
         $("#animalView").empty();
@@ -29,6 +29,7 @@ $(document).ready(function() {
     // This function handles button event
     $("#addAnimal").on("click", function () { //event might go in parenthesis
         event.preventDefault();
+
         var animalInput = $("#animalInput").val().trim(); //grabs user input
         animals.push(animalInput); //add user input to array
         renderButtons(); //call renderButtons to make buttons for all the animals
@@ -42,42 +43,45 @@ $(document).ready(function() {
         var animalData = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animalData + "&api_key=dc6zaTOxFJmzC&limit=15";
 
-        $.ajax({url: queryURL, method: "GET"}).done(function (response) { //AJAX request, maybe .then
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function (response) { //AJAX request, maybe .then
             var results = response.data; //save results as a variable
-                for (var i = 0; i < results.length; i++) { // Looping over every gif
-                    var gifDiv = $("<div class='gif'>"); // Creates a div with the class "gifs"
-                    var showGifs = $("<img>");
-                    var p = $("<p>").text("Rating: " + results[i].rating); //creates a paragraph tag with the result item's rating
-                    showGifs.attr("src", results[i].images.fixed_height_still.url);
+            for (var i = 0; i < results.length; i++) { // Looping over every gif
+                var gifDiv = $("<div class='gif'>"); // Creates a div with the class "gifs"
+                var showGifs = $("<img>");
+                var p = $("<p>").text("Rating: " + results[i].rating); //creates a paragraph tag with the result item's rating
+                showGifs.attr("src", results[i].images.fixed_height_still.url);
 
-                    ////////////////////////show rating on hover////////////////////
-                    showGifs.attr("title", "Rating: " + results[i].rating);
-                    showGifs.attr("data-still", results[i].images.fixed_height_still.url);
-                    showGifs.attr("data-state", "still");
-                    showGifs.addClass("gif");
-                    showGifs.attr('data-animate', results[i].images.fixed_height.url);
-                    gifDiv.append(p);
-                    gifDiv.append(showGifs);
+                ////////////////////////show rating on hover////////////////////
+                showGifs.attr("title", "Rating: " + results[i].rating);
+                showGifs.attr("data-still", results[i].images.fixed_height_still.url);
+                showGifs.attr("data-state", "still");
+                showGifs.addClass("gif");
+                showGifs.attr('data-animate', results[i].images.fixed_height.url);
+                gifDiv.append(p);
+                gifDiv.append(showGifs);
                 $("#animalGifs").prepend(gifDiv); //had prepend here before
             }
         });
-}
+    }
 
-////////////////// Animate Gifs /////////////////////
-$(document).on("click", ".gif", function(){
-    var goAnimate = $(this).attr("data-state");
-        if (goAnimate == "still"){
+    ////////////////// Animate Gifs (Pausing Gifs)/////////////////////
+    $(document).on("click", ".gif", function () {
+        var goAnimate = $(this).attr("data-state");
+        if (goAnimate == "still") {
             $(this).attr("src", $(this).data("animate"));
-        }
-        else {
+        } else {
             $(this).attr("src", $(this).data("still"));
             $(this).attr("data-state", "still");
         }
-});
 
-/////////////////// Show Gifs //////////////////////
-$(document).on("click", ".animal", showGifs);
+    });
 
-renderButtons();
+    /////////////////// Show Gifs //////////////////////
+    $(document).on("click", ".animal", showGifs);
+
+    renderButtons();
 
 });
