@@ -21,3 +21,11 @@ This app is fully mobile responsive.
 Additional gifs can be added to the page.
 
 Each request should ADD 15 gifs to the page, and NOT overwrite the existing gifs.
+
+## Built With
+HTML5
+CSS3
+Twitter-Bootstrap - Framework
+JavaScript
+jQuery - JavaScript Library
+Giphy API

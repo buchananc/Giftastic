@@ -68,16 +68,22 @@ $(document).ready(function () {
     }
 
     ////////////////// Animate Gifs (Pausing Gifs)/////////////////////
-    $(document).on("click", ".gif", function () {
-        var goAnimate = $(this).attr("data-state");
-        if (goAnimate == "still") {
-            $(this).attr("src", $(this).data("animate"));
-        } else {
-            $(this).attr("src", $(this).data("still"));
-            $(this).attr("data-state", "still");
-        }
+    $("#animalGifs").on("click", ".gif", function (event) {
+	event.preventDefault();
 
-    });
+	// gets the current state of the clicked gif 
+	var state = $(this).attr("data-state");
+
+	// according to the current state gifs toggle between animate and still 
+	if (state === "still") {
+	    $(this).attr("src", $(this).attr("data-animate"));
+	    $(this).attr("data-state", "animate");
+	} else {
+	    $(this).attr("src", $(this).attr("data-still"));
+	    $(this).attr("data-state", "still");
+	}
+
+});
 
     /////////////////// Show Gifs //////////////////////
     $(document).on("click", ".animal", showGifs);
