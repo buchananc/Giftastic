@@ -3,7 +3,7 @@ $(document).ready(function () {
     ////////////////////User Types in Response/////////////////
 
     //create an array of animals
-    var animals = ["fox", "turtle", "chameleon", "bee", "hummingbird"];
+    var animals = ["fox", "turtle", "chameleon", "bee", "hummingbird", "koala", "giraffe", "zebra", "pig", "lion", "bear", "puma", "hamster", "hyena"];
 
     // Function for displaying animal data
     function renderButtons() {
